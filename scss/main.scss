@@ -26,6 +26,7 @@ p {
 /* ----- BIGTITLE ----- */
 .hero-scene {
   position: relative;
+  margin-bottom: 15px;
   &::before {
     content: "";
     position: absolute;
@@ -77,4 +78,9 @@ p {
     opacity: 0;
     transition: all 0.3s;
   }
+}
+
+/* ----- Formulaire de connexion ----- */
+.form-label {
+  color: $primary;
 }

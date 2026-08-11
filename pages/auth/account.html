@@ -1,0 +1,76 @@
+<!-- BIGTITLE -->
+<div class="hero-scene text-center text-white">
+  <div class="hero-scene-content">
+    <h1>Mon compte</h1>
+  </div>
+</div>
+
+<!-- Formulaire mon compte -->
+<div class="container">
+  <!-- Centrage et gestion responsive du formulaire -->
+  <div class="row justify-content-center">
+    <!-- Largeur : 100% sur mobile (col-12) | 40% sur desktop (col-lg-5) -->
+    <div class="col-12 col-lg-5">
+      <form>
+        <div class="mb-3">
+          <label for="lastnameInput" class="form-label">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastnameInput"
+            placeholder="Votre nom"
+            value="John"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="firstnameInput" class="form-label">Prénom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstnameInput"
+            placeholder="Votre prénom"
+            value="Doe"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="AllergieInput" class="form-label">Allergies</label>
+          <input
+            type="text"
+            class="form-control"
+            id="AllergieInput"
+            placeholder="Vos allergies (fruits de mer, arachides...)"
+            value="Fruits de mer"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="NbConvivesInput" class="form-label"
+            >Nombre de convives habituel</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="NbConvivesInput"
+            placeholder="Combien vous êtes habituellement ?"
+            value="4"
+          />
+        </div>
+        <!-- Boutons d'action : empilés sur mobile, côte à côte sur PC avec un espace (gap-2) -->
+        <div
+          class="text-center pt-4 d-flex flex-column flex-sm-row justify-content-center gap-2"
+        >
+          <button type="submit" class="btn btn-primary">
+            Modifier vos informations
+          </button>
+          <button type="button" class="btn btn-danger">
+            Supprimer mon compte
+          </button>
+        </div>
+        <div class="text-center pt-4">
+          <a href="/editPassword"
+            >Cliquez ici pour modifier votre mot de passe</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

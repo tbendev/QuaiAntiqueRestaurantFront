@@ -12002,6 +12002,10 @@ p {
   font-size: 18px;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 /* ----- BIGTITLE ----- */
 .hero-scene {
   position: relative;

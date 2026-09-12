@@ -40,7 +40,9 @@
             id="EmailInput"
             placeholder="test@gmail.com"
           />
-          <div class="invalid-feedback">Veuillez saisir une adresse email valide.</div>
+          <div class="invalid-feedback">
+            Veuillez saisir une adresse email valide.
+          </div>
         </div>
         <div class="mb-3">
           <label for="PasswordInput" class="form-label">Mot de passe</label>
@@ -66,7 +68,9 @@
             class="form-control"
             id="ValidatePasswordInput"
           />
-          <div class="invalid-feedback">Les mots de passe ne correspondent pas.</div>
+          <div class="invalid-feedback">
+            Les mots de passe ne correspondent pas.
+          </div>
           <div class="valid-feedback">Les mots de passe correspondent.</div>
         </div>
         <div class="text-center pt-4">
@@ -74,12 +78,15 @@
             type="submit"
             class="btn btn-primary"
             id="btn-validate-inscription"
+            onclick="route(event)"
           >
             Inscription
           </button>
         </div>
         <div class="text-center pt-4">
-          <a href="/signin">Vous avez déjà un compte ? Connectez-vous ici !</a>
+          <a href="/signin" onclick="route(event)"
+            >Vous avez déjà un compte ? Connectez-vous ici !</a
+          >
         </div>
       </form>
     </div>

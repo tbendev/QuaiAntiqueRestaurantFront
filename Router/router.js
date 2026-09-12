@@ -22,14 +22,20 @@ const getRouteByUrl = (url) => {
 };
 
 // Fonction pour charger le contenu de la page
-const LoadContentPage = async () => {
-  const path = window.location.pathname;
+let LoadContentPage = async () => {
+  let path = window.location.pathname;
+  if (path === "/index.html") {
+    path = "/";
+    window.history.replaceState({}, "", "/");
+  }
   // Récupération de l'URL actuelle
   const actualRoute = getRouteByUrl(path);
   // Récupération du contenu HTML de la route
   const html = await fetch(actualRoute.pathHtml).then((data) => data.text());
   // Ajout du contenu HTML à l'élément avec l'ID "main-page"
   document.getElementById("main-page").innerHTML = html;
+  // AJOUT : On remonte tout en haut de la page après le changement de vue
+  window.scrollTo(0, 0);
 
   // Ajout du contenu JavaScript
   if (actualRoute.pathJS != "") {
@@ -43,7 +49,7 @@ const LoadContentPage = async () => {
   }
 
   // Changement du titre de la page
-  document.title = actualRoute.title + " - " + websiteName;
+  document.title = actualRoute.title + " - " + websitename;
 };
 
 // Fonction pour gérer les événements de routage (clic sur les liens)

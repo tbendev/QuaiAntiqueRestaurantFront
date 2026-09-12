@@ -20,6 +20,7 @@
             id="lastnameInput"
             placeholder="Votre nom"
           />
+          <div class="invalid-feedback">Veuillez renseigner votre nom.</div>
         </div>
         <div class="mb-3">
           <label for="firstnameInput" class="form-label">Prénom</label>
@@ -29,6 +30,7 @@
             id="firstnameInput"
             placeholder="Votre prénom"
           />
+          <div class="invalid-feedback">Veuillez renseigner votre prénom.</div>
         </div>
         <div class="mb-3">
           <label for="EmailInput" class="form-label">Email</label>
@@ -38,23 +40,43 @@
             id="EmailInput"
             placeholder="test@gmail.com"
           />
+          <div class="invalid-feedback">Veuillez saisir une adresse email valide.</div>
         </div>
         <div class="mb-3">
           <label for="PasswordInput" class="form-label">Mot de passe</label>
           <input type="password" class="form-control" id="PasswordInput" />
+          <div class="invalid-feedback">
+            Le mot de passe n'est pas assez robuste :
+            <ul>
+              <li id="req-length">8 caractères minimum</li>
+              <li id="req-upper">1 lettre majuscule minimum</li>
+              <li id="req-lower">1 lettre minuscule minimum</li>
+              <li id="req-number">1 chiffre minimum</li>
+              <li id="req-special">1 caractère spécial minimum</li>
+            </ul>
+          </div>
+          <div class="valid-feedback">Le mot de passe est assez robuste.</div>
         </div>
         <div class="mb-3">
           <label for="ValidatePasswordInput" class="form-label"
-            >Validez votre mot de passe</label
+            >Confirmez votre mot de passe</label
           >
           <input
             type="password"
             class="form-control"
             id="ValidatePasswordInput"
           />
+          <div class="invalid-feedback">Les mots de passe ne correspondent pas.</div>
+          <div class="valid-feedback">Les mots de passe correspondent.</div>
         </div>
         <div class="text-center pt-4">
-          <button type="submit" class="btn btn-primary">Inscription</button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="btn-validate-inscription"
+          >
+            Inscription
+          </button>
         </div>
         <div class="text-center pt-4">
           <a href="/signin">Vous avez déjà un compte ? Connectez-vous ici !</a>

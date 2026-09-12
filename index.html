@@ -16,7 +16,9 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Quai Antique</a>
+          <a class="navbar-brand" href="/" onclick="route(event)"
+            >Quai Antique</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -58,6 +60,9 @@
                   >Connexion</a
                 >
               </li>
+              <li class="nav-item">
+                <button class="nav-link" id="signout-btn">Déconnexion</button>
+              </li>
             </ul>
           </div>
         </div>
@@ -92,6 +97,7 @@
       </div>
     </footer>
 
+    <script src="js/script.js"></script>
     <!-- Le JS Bootstrap chargé en premier -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Le Router JS chargé après -->

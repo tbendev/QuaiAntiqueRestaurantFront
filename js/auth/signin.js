@@ -13,7 +13,15 @@ function checkCredentials() {
     setToken(token);
     //Placer ce token en cookie
 
-    window.location.replace("/");
+    setCookie(roleCookieName, "admin", 7)
+    const urlRedirection = sessionStorage.getItem("urlPostConnexion");
+    if (urlRedirection) {
+      sessionStorage.removeItem("urlPostConnexion");
+      window.location.replace(urlRedirection);
+    }else {
+      window.location.replace("/");
+    }
+    
   } else {
     mailInput.classList.add("is-invalid");
     passwordInput.classList.add("is-invalid");

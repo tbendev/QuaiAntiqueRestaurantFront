@@ -6,7 +6,7 @@
 </div>
 
 <!-- Button ajouter une photo pour l'administrateur -->
-<div class="text-center pt-4">
+<div class="text-center pt-4" data-show="admin">
   <!-- Button trigger modal -->
   <button
     type="button"
@@ -29,8 +29,8 @@
           class="rounded w-100"
           alt="Le chef Arnaud Michant"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -57,8 +57,8 @@
           class="rounded w-100"
           alt="Une table du restaurant Quai Antique"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -85,8 +85,8 @@
           class="rounded w-100"
           alt="Des légumes de saison sur une table en bois "
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -113,8 +113,8 @@
           class="rounded w-100"
           alt="Assortiment de plats gastronomiques sur une table en bois"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -141,8 +141,8 @@
           class="rounded w-100"
           alt="Un pavé de saumon aux herbes"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -169,8 +169,8 @@
           class="rounded w-100"
           alt="Un verre de vin et sa bouteille de vin accompagné d'un assortiment d'apéritifs"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -197,8 +197,8 @@
           class="rounded w-100"
           alt="Deux bruschettas tomate mozzarella sur une planche en bois"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -225,8 +225,8 @@
           class="rounded w-100"
           alt="Assiette de viande cuisinée en sauce avec garniture"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -253,8 +253,8 @@
           class="rounded w-100"
           alt="Un muffin au chocolat garni de crème et fruits rouges et d'un filet de chocolat"
         />
-        <p class="titre-image">Titre</p>
-        <div class="action-image-buttons">
+        <p class="titre-image" data-show="admin">Titre</p>
+        <div class="action-image-buttons" data-show="admin">
           <button
             type="button"
             class="btn btn-outline-light"
@@ -278,8 +278,10 @@
 </div>
 
 <!-- Bouton Réserver pour le client -->
-<div class="text-center pt-4">
-  <a href="/reserver" onclick="route(event)" class="btn btn-primary">Réserver une table</a>
+<div class="text-center pt-4" data-show="client">
+  <a href="/reserver" onclick="route(event)" class="btn btn-primary"
+    >Réserver une table</a
+  >
 </div>
 
 <!-- Modal édition -->

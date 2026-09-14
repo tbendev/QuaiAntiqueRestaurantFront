@@ -2,7 +2,7 @@ import Route from "./Route.js";
 import { allRoutes, websitename } from "./allRoutes.js";
 
 // Création d'une route pour la page 404 (page introuvable)
-const route404 = new Route("404", "Page introuvable", "/pages/404.html");
+const route404 = new Route("404", "Page introuvable", "/pages/404.html", []);
 
 // Fonction pour récupérer la route correspondant à une URL donnée
 const getRouteByUrl = (url) => {
@@ -28,43 +28,77 @@ let LoadContentPage = async () => {
     path = "/";
     window.history.replaceState({}, "", "/");
   }
+
   // Récupération de l'URL actuelle
   const actualRoute = getRouteByUrl(path);
+
+  //Vérifier les droits d'accés a la page
+  const allRoles = actualRoute.authorize;
+  if (allRoles.length > 0) {
+    if (allRoles.includes("disconnected")) {
+      if (isConnected()) {
+        window.location.replace("/");
+      }
+    } else {
+      const roleUser = getRole();
+      if (!allRoles.includes(roleUser)) {
+        window.location.replace("/");
+      }
+    }
+  }
+
   // Récupération du contenu HTML de la route
   const html = await fetch(actualRoute.pathHtml).then((data) => data.text());
   // Ajout du contenu HTML à l'élément avec l'ID "main-page"
   document.getElementById("main-page").innerHTML = html;
-  // AJOUT : On remonte tout en haut de la page après le changement de vue
+  // On remonte tout en haut de la page après le changement de vue
   window.scrollTo(0, 0);
 
   // Ajout du contenu JavaScript
   if (actualRoute.pathJS != "") {
-    // Création d'une balise script
     var scriptTag = document.createElement("script");
     scriptTag.setAttribute("type", "text/javascript");
     scriptTag.setAttribute("src", actualRoute.pathJS);
-
-    // Ajout de la balise script au corps du document
     document.querySelector("body").appendChild(scriptTag);
   }
 
   // Changement du titre de la page
   document.title = actualRoute.title + " - " + websitename;
+
+  //Afficher et masquer les éléments en fonction du rôle
+  showAndHideElementsForRoles();
 };
 
 // Fonction pour gérer les événements de routage (clic sur les liens)
 const routeEvent = (event) => {
   event = event || window.event;
   event.preventDefault();
-  // Mise à jour de l'URL dans l'historique du navigateur
   window.history.pushState({}, "", event.target.href);
-  // Chargement du contenu de la nouvelle page
   LoadContentPage();
 };
 
+// NOUVELLE FONCTION : Gestion spécifique du bouton de réservation
+const handleReservationClick = (event) => {
+  event.preventDefault();
+
+  if (isConnected()) {
+    window.history.pushState({}, "", "/reserver");
+  } else {
+    sessionStorage.setItem("urlPostConnexion", "/reserver");
+    window.history.pushState({}, "", "/signin");
+  }
+
+  LoadContentPage();
+};
+
+// --- EXPOSITION AU HTML ET LANCEMENT ---
+
 // Gestion de l'événement de retour en arrière dans l'historique du navigateur
 window.onpopstate = LoadContentPage;
-// Assignation de la fonction routeEvent à la propriété route de la fenêtre
+
+// On attache nos fonctions au window pour le HTML
 window.route = routeEvent;
-// Chargement du contenu de la page au chargement initial
+window.handleReservationClick = handleReservationClick;
+
+// Chargement du contenu de la page au chargement initial (une seule fois !)
 LoadContentPage();
